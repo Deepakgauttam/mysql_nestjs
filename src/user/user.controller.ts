@@ -5,18 +5,17 @@ import { CreateUserDto } from './dto/create-user.dto';
 @Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}
+//   @Post()
+// async create(@Body() body: any): Promise<any> {
+//   console.log('Body:', body);
+//   return this.userService.create(body);
+// }
+
   @Post()
-async create(@Body() body: any): Promise<any> {
-  console.log('Body:', body);
-  return this.userService.create(body);
-}
-
-  // @Post()
-  // async create(@Body() createUserDto: CreateUserDto): Promise<any> {
-  //   console.log(`createUserDto value: ${JSON.stringify(createUserDto)}`);
-
-  //   return this.userService.create(createUserDto);
-  // }
+  async create(@Body() createUserDto: CreateUserDto): Promise<any> {
+    console.log(`createUserDto value: ${JSON.stringify(createUserDto)}`);
+    return this.userService.create(createUserDto);
+  }
 
   @Get()
   async findAll(): Promise<any> {
